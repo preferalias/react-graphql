@@ -19,6 +19,6 @@ export default styled.form`
     border: 0;
     color: #fff;
     background-color: #333;
-
+    margin-bottom: 10px;
   }
 `

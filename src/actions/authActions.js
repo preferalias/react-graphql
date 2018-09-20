@@ -1,4 +1,4 @@
-import { SIGN_IN, SIGN_OUT, CHECK_AUTHENTICATION } from './types'
+import { SIGN_IN, SIGN_OUT, CHECK_AUTHENTICATION, SIGN_UP } from './types'
 import { fetching, fetched } from './fetchActions'
 import { SERVER_URL } from '../utils/config'
 
@@ -72,6 +72,43 @@ export const checkAuthen = () => dispatch => {
       })
     }
     )
+}
+
+export const signUp = (user, pass) => dispatch => {
+  fetch(`${SERVER_URL}/signup`,{
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    credentials: 'include',
+    body: JSON.stringify({
+      username: user,
+      password: pass 
+    })
+  })
+    .then(res => {
+      return res.json()
+    })
+    .then(data => {
+      if(data.isAuthenticated){
+        localStorage.setItem('token', data.token)
+      }
+      dispatch({
+        type: SIGN_UP,
+        payload : data.message,
+        error : data.error,
+        fetched: true,
+    })    }
+  ).catch(err => {
+      dispatch({
+        type: SIGN_UP,
+        payload: 'Network error: Please check your connection',
+        error : true,
+        fetched: true
+      })
+    }
+  ) 
 }
 
 export const logOut = () => dispatch => {

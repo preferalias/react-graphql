@@ -9,6 +9,7 @@ export const SIGN_IN = 'SIGN_IN'
 export const SIGN_OUT = 'SIGN_OUT'
 export const CHECK_AUTHENTICATION = 'CHECK_AUTHENTICATION'
 export const IS_CHECKING = 'IS_CHECKING'
+export const SIGN_UP = 'SIGN_UP'
 
 /* Fetch Types */
 export const FETCHING = 'FETCHING'

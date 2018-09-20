@@ -1,4 +1,4 @@
-import { SIGN_IN, SIGN_OUT, CHECK_AUTHENTICATION} from '../actions/types'
+import { SIGN_IN, SIGN_OUT, CHECK_AUTHENTICATION, SIGN_UP} from '../actions/types'
 
 const initialState = {
     error: false,
@@ -18,6 +18,13 @@ export default function(state = initialState, action) {
                 isAuthenticated: action.isAuthenticated ,
                 token: action.token,
             };
+        case SIGN_UP: 
+            return {
+                ...state,
+                message : action.payload,
+                error : action.error,
+                fetched: action.fetched
+            }
         case SIGN_OUT:
             return {
               ...state,

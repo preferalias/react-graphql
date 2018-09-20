@@ -1,7 +1,7 @@
 import React from 'react';
 import Form from '../App/Login'
 
-export default ({username, password, onChange, onSignin})=> {
+export default ({username, password, onChange, onSignin, toRegis, Regis})=> {
 
   return (
     <div>
@@ -18,7 +18,12 @@ export default ({username, password, onChange, onSignin})=> {
             name="password"
             type="password" 
             placeholder="password" />
-          <button onClick={onSignin}>Login</button> 
+          
+          {
+            Regis ? null
+            : <button onClick={onSignin}>Login</button>
+          }
+          <button onClick={toRegis}>Register</button>
         </Form>  
       </div>
   )

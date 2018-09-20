@@ -11,6 +11,7 @@ import News from './components/news'
 import Contact from './components/contact'
 import Login from './container/login'
 import requireAuth from './utils/requireAuth'
+import Register from './container/register'
 
 class App extends Component {
   render() { 
@@ -26,6 +27,7 @@ class App extends Component {
             <Route path="/contact" component={Contact} />
             <Route path="/login" component={Login} />
             <Route path="/product" component={requireAuth(Product)} />
+            <Route path="/register" component={Register} />
           </Container>
           <Footer></Footer>
         </div>
